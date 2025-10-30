@@ -1,0 +1,177 @@
+:root {/* CSS HEX */
+--grullo: #A59E8Cff;
+--timberwolf: #DBDBD6ff;
+--gray-web: #7E7B7Cff;
+--morning-blue: #7C9290ff;
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #A59E8Cff, #DBDBD6ff, #7E7B7Cff, #7C9290ff);
+$gradient-right: linear-gradient(90deg, #A59E8Cff, #DBDBD6ff, #7E7B7Cff, #7C9290ff);
+$gradient-bottom: linear-gradient(180deg, #A59E8Cff, #DBDBD6ff, #7E7B7Cff, #7C9290ff);
+$gradient-left: linear-gradient(270deg, #A59E8Cff, #DBDBD6ff, #7E7B7Cff, #7C9290ff);
+$gradient-top-right: linear-gradient(45deg, #A59E8Cff, #DBDBD6ff, #7E7B7Cff, #7C9290ff);
+$gradient-bottom-right: linear-gradient(135deg, #A59E8Cff, #DBDBD6ff, #7E7B7Cff, #7C9290ff);
+$gradient-top-left: linear-gradient(225deg, #A59E8Cff, #DBDBD6ff, #7E7B7Cff, #7C9290ff);
+$gradient-bottom-left: linear-gradient(315deg, #A59E8Cff, #DBDBD6ff, #7E7B7Cff, #7C9290ff);
+$gradient-radial: radial-gradient(#A59E8Cff, #DBDBD6ff, #7E7B7Cff, #7C9290ff);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: var(--morning-blue);
+  color:white;
+  font-size:40px;
+  text-align: center;
+  padding: 10px;
+}
+body {
+  margin: 0;
+  background-color:  var(--timberwolf);
+}
+
+h1 {
+   text-align: center;
+   font-size:40px;
+   overflow: auto;
+}
+
+h2 {
+   text-align: center;
+   font-size:20px;   
+}
+h3 {
+   text-align: left;
+   font-size:18px;
+   margin-left: 20px; 
+}
+
+p {
+  margin-left: 20px;
+}
+
+#rightfloat  {
+ float: right;
+ height: 60px;
+  padding: 0px 10px 0px 10px;
+ width: auto;
+}
+#leftfloat  {
+ float: left;
+ height: 60px;
+  padding: 0px 10px 0px 0px;
+ width: auto;
+}
+
+#photo  {
+ width: 100%;
+ padding: 10px 10px 10px 10px;
+}
+
+#logo {
+ float: left;
+ padding: 0;
+ height: 34px;
+ width: auto;
+}
+
+/* The navbar container */
+.navigation {
+  overflow: auto;
+  background-color: var(--gray-web);
+  font-size:30px;
+}
+
+/* Navbar links */
+.navigation a {
+  float: left;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color:white;
+  padding: 15px 15px;
+  overflow: auto;
+}
+
+/* Links - change color on hover */
+.navigation a:hover:not(.active) {
+  background-color: var(--grullo);
+  color: white;
+  overflow: auto;
+}
+
+.navigation > .active {
+  color: black;
+  background-color: var(--timberwolf);
+  overflow: auto;
+}
+
+/* Create three equal columns that float next to each other */
+.column {
+  float: left;
+  width: 33.3%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+@media screen and (max-width: 900px) {
+.navigation {
+  font-size:15px;
+}
+.navigation a {
+  padding: 5px 5px;
+}
+  .column {
+    width: 100%;
+  }
+#rightfloat  {
+ float: right;
+ padding: 0;
+ height: 20px;
+ width: auto;
+}
+#leftfloat  {
+ float: left;
+ padding: 0;
+ height: 20px;
+ width: auto;
+}
+#logo {
+ float: left;
+ padding: 0;
+ height: 13px;
+ width: auto;
+}
+h1 {
+   font-size:20px;
+}
+h2 {
+   font-size:10px;   
+}
+h3 {
+   font-size:10px;
+}
+ul{
+font-size: 8px;
+}
+li{
+font-size: 8px;
+}
+p {
+    font-size: 8px;
+    font-family: "Times New Roman", Times, serif;
+}
+}
+
+
+
