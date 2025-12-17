@@ -1,4 +1,4 @@
-@import url(font-awesome.min.css);
+@import url("https://use.fontawesome.com/releases/v5.15.4/css/all.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
 
 /*
@@ -2534,9 +2534,9 @@
 		.icon:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
 			font-style: normal;
-			font-weight: normal;
+			font-weight: inherit;
+			font-family: inherit;
 			text-transform: none !important;
 		}
 
@@ -2676,6 +2676,27 @@
 						font-size: 1.25em;
 					}
 
+				/* SVG/icon sizing for header social logos */
+				ul.icons li img.icon-img, ul.icons li img, ul.icons li svg.icon-img, ul.icons li svg {
+					height: 1.10em; /* reduced to better match text */
+					vertical-align: -0.08em; /* nudge to visually center (moved up by 0.05em) */
+					display: inline-block;
+					transition: filter 0.15s ease, opacity 0.15s ease;
+				}
+
+				/* Make image-based or inline-SVG icons behave like font icons */
+				ul.icons li a.icon {
+					border-bottom: none; /* remove dotted underline */
+					text-decoration: none;
+				}
+
+				ul.icons li a.icon:hover img.icon-img,
+				ul.icons li a.icon:focus img.icon-img,
+				ul.icons li a.icon:hover svg.icon-img,
+				ul.icons li a.icon:focus svg.icon-img {
+					filter: brightness(0.85);
+					opacity: 0.95;
+				}
 		ul.contact {
 			list-style: none;
 			padding: 0;

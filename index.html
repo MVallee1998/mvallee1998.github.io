@@ -46,31 +46,31 @@
           <!-- Header -->
           <header id="header">
             <a href="https://www.ulb.be/" class="logo">
-              <strong>ULB</strong><br />
-              Université libre de Bruxelles
+              <img src="Images/Logo-ULB.svg" alt="ULB" class="icon-img" />
             </a>
             <ul class="icons">
               <!-- Github icon -->
               <li><a href="https://github.com/MVallee1998/"
-		     class="icon fa-github"
+	     class="icon fab fa-github"
 		     title="GitHub">
 		<span class="label">GitHub</span></a></li>
               <li>
                 <a
                   href="https://orcid.org/0000-0001-6336-9225"
-                  class="fa-brands fa-orcid"
+                  class="icon fab fa-orcid"
                   title="Orcid"
                 >
                   <span class="label">Orcid</span>
                 </a>
               </li>
               <li>
-                <a
-                  href="https://hal.science/search/index/?q=*&authIdPerson_i=1154345"
-                  class="fa-brands fa-hal"
-                  title="HAL CNRS"
-                >
-                  <span class="label">HAL CNRS</span>
+                <a class="icon" href="https://hal.science/search/index/?q=*&authIdPerson_i=1154345" title="HAL CNRS" aria-label="HAL">
+                  <img src="Images/hal.svg" alt="HAL" class="icon-img" />
+                </a>
+              </li>
+              <li>
+                <a class="icon" href="http://arxiv.org/a/vallee_m_1" title="arXiv" aria-label="arXiv">
+                  <img src="Images/arxiv.svg" alt="arXiv" class="icon-img" />
                 </a>
               </li>
             </ul>
@@ -117,21 +117,12 @@
 
           <hr class="major" />
           <header class="major">
-            <h2 id="research">Research</h2>
+            <h2 id="research">Research overview</h2>
           </header>
           <div class="row 200%">
-            <div class="6u 12u$(medium)">
-              <!-- Left column -->
-              <h4>Toric topology</h4>
-              <p>
-                During my Master degree, I took a year off to focus on research with <a href="http://acmi.ajou.ac.kr/~schoi/">Suyoung Choi</a>,
-                with whom I undertook my bachelor degree internship.
-                Our research is mainly focused on the study of toric manifolds, and the combinatorics that appear from them.
-                The tools used here range from (binary) matroid theory to PL-spheres together with algebraic geometry and Groebner bases.
-              </p>
-            </div>
-            <div class="6u$ 12u(medium)">
+            <div class="4u 12u(medium)">
               <!-- Right column -->
+               <h3>Combinatorial optimization</h3>
               <h4>Box-integrality and the integer decomposition property</h4>
               <p>
                Box-integrality is a property of some integer polyhedron to remain integer after a truncation with any integer box.
@@ -140,6 +131,29 @@
                For this subject, I use plenty of discrete geometry such as triangulation of polyhedron, box-total dual integrality, and a class of matrices that generalizes totally unimodular matrices: totally equimodular matrices.
               </p>
             </div>
+            <div class="4u 12u(medium)">
+              <!-- Left column -->
+              <h3>Toric topology</h3>
+                <h4>Toric manifolds with small Picard number</h4>
+              <p>
+                This research focuses on toric manifolds, which correspond to complete nonsingular fans in the n-real space.
+                In particular, we use the wedge operation on simplicial complexes to study toric manifolds with small Picard number,
+                that is, whose associated fans have only slightly more rays than their dimension.
+              </p>
+              <img src="Images/wedge.png" alt="Wedge operation"  style="width:100%; height:auto;"/>
+            </div>
+            <div class="4u$ 12u$(medium)">
+              <!-- Left column -->
+              <h3>Operad theory</h4>
+                <h4>Set theoretic operads</h4>
+              <p>
+                The purpose of operads is to encode universally all the operations acting on any category of algebras.
+                I study operads on sets and how they behave with respect to different set theoretic operations with a specific focus on operads on simplicial complexes.
+                In fact, they appear in the theory of polyhedral products, which for instance helps building topological models for toric manifolds.
+              </p>
+              <img src="Images/perm.png" alt="Perm" style="width:100%; height:auto;" />
+            </div>
+            
           </div>
 <!--
           -- PREPRINTS --
