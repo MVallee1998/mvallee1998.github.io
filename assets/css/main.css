@@ -2697,6 +2697,17 @@
 					filter: brightness(0.85);
 					opacity: 0.95;
 				}
+
+/* arXiv feed list */
+.arxiv-list dt h4 { margin: 0 0 0.25em 0; }
+.arxiv-list dd { margin: 0 0 1em 0; }
+.arxiv-list dd p { margin: 0.25em 0; }
+
+/* Publications list (from BibTeX) */
+.pub-list dt h4 { margin: 0 0 0.25em 0; }
+.pub-list dd { margin: 0 0 1em 0; }
+.pub-list dd p { margin: 0.25em 0; }
+.pub-list dt h4 a { text-decoration: none; }
 		ul.contact {
 			list-style: none;
 			padding: 0;

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Mathieu Vallée's articles on arXiv</title>
+  <link rel="describes" href="https://orcid.org/0000-0001-6336-9225"/>
+  <updated>2025-12-17T00:00:00-05:00</updated>
+  <id>http://arxiv.org/a/vallee_m_1</id>
+  <link href="http://arxiv.org/a/vallee_m_1.atom2" rel="self" type="application/atom+xml"/>
+  <link rel="describes" href="http://arxiv.org/a/vallee_m_1"/>
+  <entry>
+    <id>http://arxiv.org/abs/2504.18134v1</id>
+    <updated>2025-04-25T03:36:42-04:00</updated>
+    <published>2025-04-25T03:36:42-04:00</published>
+    <title>Complete non-singular toric varieties with Picard number 4</title>
+    <summary>We classify all complete non-singular toric varieties with Picard number four via a combinatorial framework based on fanlike simplicial spheres and characteristic maps. This classification yields $59$ fanlike seeds with Picard number four, along with all toric manifolds supported by them. As a consequence, we resolve a conjecture of Gretenkort, Kleinschmidt, and Sturmfels by presenting the first known examples of toric manifolds supported by neighborly polytopes. We also answer a question of Batyrev concerning minimal non-faces of such spheres.</summary>
+    <author>
+      <name>Suyoung Choi, Hyeontae Jang, Mathieu Vallée</name>
+    </author>
+    <link href="http://arxiv.org/abs/2504.18134v1" rel="alternate" type="text/html"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2504.18134v1" rel="related" type="application/pdf"/>
+    <arxiv:primary_category xmlns:arxiv="http://arxiv.org/schemas/atom" term="math.AG" scheme="http://arxiv.org/schemas/atom" label="Algebraic Geometry (math.AG)"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom" label="Algebraic Geometry (math.AG)"/>
+    <category term="57S12" scheme="http://arxiv.org/schemas/atom"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2504.05930v2</id>
+    <updated>2025-04-09T03:05:06-04:00</updated>
+    <published>2025-04-08T07:40:59-04:00</published>
+    <title>Totally equimodular matrices: decomposition and triangulation</title>
+    <summary>Totally equimodular matrices generalize totally unimodular matrices and arise in the context of box-total dual integral polyhedra. This work further explores the parallels between these two classes and introduces foundational building blocks for constructing totally equimodular matrices. Consequently, we present a decomposition theorem for totally equimodular matrices of full row rank.
+  Building on this decomposition theorem, we prove that simplicial cones whose generators form the rows of a totally equimodular matrix sa\-tisfy strong integrality decomposition properties. More precisely, we provide the Hilbert basis for these cones and construct regular unimodular Hilbert triangulations in most cases. We conjecture that cases not covered here do not exist.</summary>
+    <author>
+      <name>Patrick Chervet, Roland Grappe, Mathieu Vallée</name>
+    </author>
+    <arxiv:comment xmlns:arxiv="http://arxiv.org/schemas/atom">40 pages</arxiv:comment>
+    <link href="http://arxiv.org/abs/2504.05930v2" rel="alternate" type="text/html"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2504.05930v2" rel="related" type="application/pdf"/>
+    <arxiv:primary_category xmlns:arxiv="http://arxiv.org/schemas/atom" term="math.CO" scheme="http://arxiv.org/schemas/atom" label="Combinatorics (math.CO)"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom" label="Combinatorics (math.CO)"/>
+    <category term="cs.DM" scheme="http://arxiv.org/schemas/atom" label="Discrete Mathematics (cs.DM)"/>
+    <category term="90C27 (Primary), 05B20, 90C10 (Secondary)" scheme="http://arxiv.org/schemas/atom"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2404.15600v1</id>
+    <updated>2024-04-23T22:40:43-04:00</updated>
+    <published>2024-04-23T22:40:43-04:00</published>
+    <title>Toric wedge induction and toric lifting property for piecewise linear spheres with a few vertices</title>
+    <summary>Let $K$ be an $(n-1)$-dimensional piecewise linear sphere on $[m]$, where $m\leq n+4$. There are a canonical action of $m$-dimensional torus $T^m$ on the moment-angle complex $\mathcal{Z}_K$, and a canonical action of $\mathbb{Z}_2^m$ on the real moment-angle complex $\mathbb{R}\mathcal{Z}_K$, where $\mathbb{Z}_2$ is the additive group with two elements. We prove that any subgroup of $\mathbb{Z}_2^m$ acting freely on $\mathbb{R}\mathcal{Z}_K$ is induced by a subtorus of $T^m$ acting freely on $\mathcal{Z}_K$. The proof primarily utilizes a suitably modified method of toric wedge induction and the combinatorial structure of a specific binary matroid of rank $4$.</summary>
+    <author>
+      <name>Suyoung Choi, Hyeontae Jang, Mathieu Vallée</name>
+    </author>
+    <arxiv:comment xmlns:arxiv="http://arxiv.org/schemas/atom">16pages, 3 tables</arxiv:comment>
+    <link href="http://arxiv.org/abs/2404.15600v1" rel="alternate" type="text/html"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2404.15600v1" rel="related" type="application/pdf"/>
+    <arxiv:primary_category xmlns:arxiv="http://arxiv.org/schemas/atom" term="math.AT" scheme="http://arxiv.org/schemas/atom" label="Algebraic Topology (math.AT)"/>
+    <category term="math.AT" scheme="http://arxiv.org/schemas/atom" label="Algebraic Topology (math.AT)"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom" label="Combinatorics (math.CO)"/>
+    <category term="57S12" scheme="http://arxiv.org/schemas/atom"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2301.00806v3</id>
+    <updated>2024-03-12T01:03:34-04:00</updated>
+    <published>2023-01-02T13:52:43-05:00</published>
+    <title>The characterization of $(n-1)$-spheres with $n+4$ vertices having maximal Buchstaber number</title>
+    <summary>We present a computationally efficient algorithm that is suitable for graphic processing unit implementation. This algorithm enables the identification of all weak pseudo-manifolds that meet specific facet conditions, drawn from a given input set. We employ this approach to enumerate toric colorable seeds. Consequently, we achieve a comprehensive characterization of $(n-1)$-dimensional PL spheres with $n+4$ vertices that possess a maximal Buchstaber number.
+  A primary focus of this research is the fundamental categorization of non-singular complete toric varieties of Picard number $4$. This classification serves as a valuable tool for addressing questions related to toric manifolds of Picard number $4$. Notably, we have determined which of these manifolds satisfy equality within an inequality regarding the number of minimal components in their rational curve space. This addresses a question posed by Chen, Fu, and Hwang in 2014 for this specific case.</summary>
+    <author>
+      <name>Suyoung Choi, Hyeontae Jang, Mathieu Vallée</name>
+    </author>
+    <arxiv:comment xmlns:arxiv="http://arxiv.org/schemas/atom">20 pages, 2 tables, 1 figure, 2 algorithms</arxiv:comment>
+    <link href="http://arxiv.org/abs/2301.00806v3" rel="alternate" type="text/html"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2301.00806v3" rel="related" type="application/pdf"/>
+    <arxiv:primary_category xmlns:arxiv="http://arxiv.org/schemas/atom" term="math.GT" scheme="http://arxiv.org/schemas/atom" label="Geometric Topology (math.GT)"/>
+    <category term="math.GT" scheme="http://arxiv.org/schemas/atom" label="Geometric Topology (math.GT)"/>
+    <category term="cs.CG" scheme="http://arxiv.org/schemas/atom" label="Computational Geometry (cs.CG)"/>
+    <category term="cs.DC" scheme="http://arxiv.org/schemas/atom" label="Distributed, Parallel, and Cluster Computing (cs.DC)"/>
+    <category term="57S12 (primary), 14N10 (secondary), 14M25" scheme="http://arxiv.org/schemas/atom"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2111.07298v2</id>
+    <updated>2021-12-02T04:50:47-05:00</updated>
+    <published>2021-11-14T05:03:07-05:00</published>
+    <title>An algorithmic strategy for finding characteristic maps over wedged simplicial complexes</title>
+    <summary>The puzzle method was introduced by Choi and Park as an effective method for finding non-singular characteristic maps over wedged simplicial complexes $K(J)$ obtained from a given simplicial complex $K$. We study further the mod 2 case of the puzzle method. We firstly describe it completely in terms of linear algebraic language which allows us to develop a constructive puzzle algorithm. We also analyze our algorithm and compare its performances with other known algorithms including the Garrison and Scott algorithm.</summary>
+    <author>
+      <name>Suyoung Choi, Mathieu Vallée</name>
+    </author>
+    <arxiv:doi xmlns:arxiv="http://arxiv.org/schemas/atom">10.2140/pjm.2022.320.13</arxiv:doi>
+    <arxiv:comment xmlns:arxiv="http://arxiv.org/schemas/atom">24 pages, 3 tables</arxiv:comment>
+    <arxiv:journal_ref xmlns:arxiv="http://arxiv.org/schemas/atom">Pacific J. Math. 320 (2022) 13-43</arxiv:journal_ref>
+    <link href="http://arxiv.org/abs/2111.07298v2" rel="alternate" type="text/html"/>
+    <link title="pdf" href="http://arxiv.org/pdf/2111.07298v2" rel="related" type="application/pdf"/>
+    <link title="doi" href="http://dx.doi.org/10.2140/pjm.2022.320.13" rel="related"/>
+    <arxiv:primary_category xmlns:arxiv="http://arxiv.org/schemas/atom" term="math.GT" scheme="http://arxiv.org/schemas/atom" label="Geometric Topology (math.GT)"/>
+    <category term="math.GT" scheme="http://arxiv.org/schemas/atom" label="Geometric Topology (math.GT)"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom" label="Combinatorics (math.CO)"/>
+    <category term="57S12, 57-08, 05E45" scheme="http://arxiv.org/schemas/atom"/>
+  </entry>
+</feed>

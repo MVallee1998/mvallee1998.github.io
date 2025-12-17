@@ -280,6 +280,219 @@
 
 				});
 
+		// Fetch and render arXiv Atom feed (graceful fallback when blocked).
+			(function() {
+				var feedUrl = 'https://arxiv.org/a/vallee_m_1.atom2';
+				var $container = $('#arxiv-feed');
+				if (!$container.length) return;
+				var maxItems = 2;
+
+				// arXiv does not set CORS headers; use a lightweight public proxy as a quick fix.
+				// Long-term: fetch server-side during build/deploy or host a simple proxy.
+				var proxies = [
+					'https://api.allorigins.win/raw?url=',
+					'https://api.allorigins.win/get?url='
+				];
+
+				function tryFetchProxy(i) {
+					if (i >= proxies.length) {
+						console.error('arXiv feed: all proxies failed');
+						$container.html('<p>Could not load arXiv feed. <a href="' + feedUrl + '" target="_blank" rel="noopener">Open feed</a></p>');
+						return;
+					}
+
+					var url = proxies[i] + encodeURIComponent(feedUrl);
+					var isJSONProxy = proxies[i].indexOf('/get?url=') !== -1;
+
+					if (i > 0) { $container.html('<p>Trying alternative proxy…</p>'); }
+					fetch(url).then(function(resp) {
+						if (!resp.ok) throw new Error('Network response was not ok (proxy ' + i + ')');
+						if (isJSONProxy) return resp.json().then(function(data){ return data && data.contents ? data.contents : Promise.reject(new Error('No contents from JSON proxy')); });
+						return resp.text();
+					}).then(function(text) {
+						var parser = new DOMParser();
+						var xml = parser.parseFromString(text, 'application/xml');
+						var entries = xml.querySelectorAll('entry');
+						if (!entries || entries.length === 0) {
+							$container.html('<p>No recent arXiv entries found. <a href="' + feedUrl + '" target="_blank" rel="noopener">View feed</a></p>');
+							return;
+						}
+
+						var html = '<dl class="arxiv-list">';
+						for (var j = 0; j < Math.min(entries.length, maxItems); j++) {
+							var e = entries[j];
+							var title = e.querySelector('title') ? e.querySelector('title').textContent.trim() : '';
+							var linkEl = e.querySelector('link[rel="alternate"]') || e.querySelector('link');
+							var link = linkEl ? (linkEl.getAttribute('href') || linkEl.textContent) : (e.querySelector('id') ? e.querySelector('id').textContent : '#');
+							var updated = e.querySelector('updated') ? e.querySelector('updated').textContent : (e.querySelector('published') ? e.querySelector('published').textContent : '');
+							var summary = e.querySelector('summary') ? e.querySelector('summary').textContent.trim() : '';
+							var summaryShort = summary.length > 300 ? summary.slice(0, 300).replace(/\s+\S*$/, '') + '…' : summary;
+							// parse authors and show co-authors (exclude the site owner)
+							var authorEl = e.querySelector('author name');
+							var authors = [];
+							if (authorEl && authorEl.textContent) {
+								authors = authorEl.textContent.split(',').map(function(s){ return s.trim(); });
+							}
+							var coauthors = authors.filter(function(a){ return !/mathieu/i.test(a) && !/vall[eé]e/i.test(a); });
+
+							html += '<dt><h4><a href="' + link + '" target="_blank" rel="noopener">' + title + '</a></h4></dt>';
+							html += '<dd>';
+							if (updated) {
+							var d = new Date(updated);
+							html += '<p><em>' + d.toLocaleString('en', { month: 'long', year: 'numeric' }) + '</em></p>';
+						}
+							if (coauthors && coauthors.length) {
+								html += '<p><strong>Co-authors:</strong> ' + coauthors.join(', ') + '</p>';
+							}
+							html += '<p><strong>Abstract: </strong>' + summaryShort + ' <a href="' + link + '" target="_blank" rel="noopener">[read]</a></p>';
+							html += '</dd>';
+						}
+						html += '</dl>';
+						$container.html(html);
+					}).catch(function(err) {
+						console.warn('arXiv proxy ' + i + ' failed:', err);
+						// try next proxy
+						tryFetchProxy(i+1);
+					});
+				}
+
+				// start trying proxies
+				tryFetchProxy(0);
+
+			})();
+
+			// Fetch and render publications from local BibTeX
+			(function() {
+				var bibUrl = '/References/articles.bib';
+				var $container = $('#publications-list');
+				if (!$container.length) return;
+				$container.html('<p>Loading publications…</p>');
+
+				var bibUrls = [bibUrl, 'References/articles.bib'];
+				function tryFetchBib(i) {
+					if (i >= bibUrls.length) {
+						$container.html('<p>Could not load publications from the BibTeX file. Ensure <code>References/articles.bib</code> exists and the site is served over HTTP (not file://). See console for details.</p>');
+						console.error('Publications fetch: all attempts failed');
+						return;
+					}
+					var url = bibUrls[i];
+					if (i > 0) $container.html('<p>Trying alternative path: ' + url + ' …</p>');
+					fetch(url).then(function(resp) {
+						if (!resp.ok) throw new Error('HTTP ' + resp.status + ' ' + resp.statusText + ' when fetching ' + url);
+						return resp.text();
+					}).then(function(text) {
+						// strip simple comments
+						text = text.replace(/^[ \t]*%.*$/gm, '');
+						// ensure each entry starts with @
+						text = text.replace(/^\s+/, '');
+						var rawEntries = text.split(/\n\s*@(?=[a-zA-Z])/);
+						var entries = [];
+						rawEntries.forEach(function(raw, idx) {
+							if (!raw) return;
+							raw = (raw.charAt(0) === '@') ? raw : ('@' + raw);
+							var m = raw.match(/^@(\w+)\s*{\s*([^,]+),/i);
+							if (!m) return;
+							var type = m[1];
+							var key = m[2];
+							var body = raw.slice(m[0].length);
+							var fields = {};
+							var fieldRegex = /(\w+)\s*=\s*(\{([\s\S]*?)\}|\"([\s\S]*?)\"|([^,}]+))\s*(,|$)/g;
+							var fm;
+							while ((fm = fieldRegex.exec(body)) !== null) {
+								var fname = fm[1].toLowerCase();
+								var fval = fm[3] || fm[4] || fm[5] || '';
+								fval = fval.replace(/[\r\n]+/g, ' ').trim();
+								fields[fname] = fval;
+							}
+							entries.push({type: type, key: key, fields: fields});
+						});
+
+						if (!entries.length) {
+							$container.html('<p>No publications found in the BibTeX file.</p>');
+							return;
+						}
+
+						// sort by year desc (fallback to sort by key)
+						entries.sort(function(a,b){ var ya = parseInt(a.fields.year)||0; var yb = parseInt(b.fields.year)||0; if (ya===yb) return a.key.localeCompare(b.key); return yb - ya; });
+
+						var html = '<dl class="pub-list">';
+						entries.forEach(function(ent) {
+							var f = ent.fields;
+							var title = f.title || '(untitled)';
+							// remove surrounding braces/quotes if present
+							title = title.replace(/^\{(.*)\}$/,'$1').replace(/^\"(.*)\"$/,'$1');
+							// escape helper
+							function esc(s){ return (s||'').toString().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+						// normalize double-hyphens to en dash for display
+						function normDash(s){ return (s||'').toString().replace(/-{2,}/g, '–'); }
+						// normalize title and compute co-authors
+						title = normDash(title);
+						var titleSafe = esc(title);
+						var authors = f.author || '';
+						var authorList = authors ? authors.split(/\s+and\s+/i).map(function(a){ return a.trim(); }) : [];
+						var ownerRegex = /mathieu/i;
+						var ownerLast = /vall[eé]e/i;
+						var coauthors = authorList.filter(function(a){ return !(ownerRegex.test(a) || ownerLast.test(a)); });
+						var coauthorHtml = coauthors.map(function(a){ return esc(a); }).join(', ');
+							var link = '#';
+							if (f.doi) { var doi = f.doi.replace(/^doi:\s*/i, '').trim(); link = 'https://doi.org/' + doi; }
+							else if (f.url) link = f.url;
+							else if (f.eprint && (/arxiv/i.test(f.archiveprefix||'') || f.eprint.match(/^\d{4}\.\d{4,5}$/))) link = 'https://arxiv.org/abs/' + f.eprint;
+						var journal = f.fjournal || f.journal || f.booktitle || f.publisher || '';
+						// Build a locale date string similar to arXiv output (use month if available)
+						var pubDateDisplay = '';
+						if (f.year) {
+							var y = parseInt(f.year, 10);
+							if (!isNaN(y)) {
+								if (f.month) {
+									var months = {jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+									var mstr = String(f.month).toLowerCase().replace(/[^a-z0-9]/g,'');
+									var mindex = null;
+									if (/^\d+$/.test(mstr)) mindex = Math.max(0, Math.min(11, parseInt(mstr,10)-1));
+									else if (mstr.length >= 3) mindex = months[mstr.slice(0,3)];
+									if (typeof mindex === 'number' && !isNaN(mindex)) {
+										var dt = new Date(y, mindex, 1);
+									pubDateDisplay = dt.toLocaleString('en', { month: 'long', year: 'numeric' });
+									} else {
+										pubDateDisplay = String(y);
+									}
+								} else {
+									pubDateDisplay = String(y);
+								}
+							}
+						}
+						html += '<dt><h4><a href="' + link + '" target="_blank" rel="noopener">' + titleSafe + '</a></h4></dt>';
+						html += '<dd>';
+						if (pubDateDisplay) html += '<p><em>' + pubDateDisplay + '</em></p>';
+					if (coauthorHtml && coauthorHtml.length) html += '<p><strong>Co-authors:</strong> ' + coauthorHtml + '</p>';
+				if (journal) {
+					var vol = f.volume || f.vol || '';
+					var num = f.number || f.issue || '';
+					var pages = f.pages || '';
+					// normalize dashes in journal and pages
+					pages = normDash(pages);
+					var journalRaw = normDash(journal);
+					var journalParts = esc(journalRaw);
+						if (vol) journalParts += ', vol. ' + esc(vol);
+						if (num) journalParts += ', no. ' + esc(num);
+						if (pages) journalParts += ', pp. ' + esc(pages);
+						html += '<p><em>' + journalParts + '</em></p>';
+					}
+							html += '</dd>';
+						});
+						html += '</dl>';
+						$container.html(html);
+					}).catch(function(err) {
+						console.warn('Publications fetch failed for', url, err);
+						// try next url
+						tryFetchBib(i+1);
+					});
+				}
+
+				tryFetchBib(0);
+
+			})();
+
 	});
 
 })(jQuery);
