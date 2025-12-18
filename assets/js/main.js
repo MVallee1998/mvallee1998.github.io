@@ -319,8 +319,12 @@
 						}
 
 						var html = '<dl class="arxiv-list">';
-						for (var j = 0; j < Math.min(entries.length, maxItems); j++) {
+					var rendered = 0;
+						for (var j = 0; j < entries.length; j++) { if (rendered >= maxItems) break;
 							var e = entries[j];
+						// Skip entries that have a related DOI link (published versions)
+						var doiLink = e.querySelector('link[title="doi"]') || e.querySelector('link[rel="related"][title="doi"]') || Array.prototype.slice.call(e.querySelectorAll('link')).find(function(l){ var h = l.getAttribute('href') || ''; return /dx\.doi\.org|doi\.org/i.test(h); });
+						if (doiLink) continue;
 							var title = e.querySelector('title') ? e.querySelector('title').textContent.trim() : '';
 							var linkEl = e.querySelector('link[rel="alternate"]') || e.querySelector('link');
 							var link = linkEl ? (linkEl.getAttribute('href') || linkEl.textContent) : (e.querySelector('id') ? e.querySelector('id').textContent : '#');
@@ -345,10 +349,13 @@
 								html += '<p><strong>Co-authors:</strong> ' + coauthors.join(', ') + '</p>';
 							}
 							html += '<p><strong>Abstract: </strong>' + summaryShort + ' <a href="' + link + '" target="_blank" rel="noopener">[read]</a></p>';
-							html += '</dd>';
-						}
+							html += '</dd>';						rendered++;						}
 						html += '</dl>';
+					if (rendered === 0) {
+						$container.html('<p>No recent arXiv entries found. <a href="' + feedUrl + '" target="_blank" rel="noopener">View feed</a></p>');
+					} else {
 						$container.html(html);
+					}
 					}).catch(function(err) {
 						console.warn('arXiv proxy ' + i + ' failed:', err);
 						// try next proxy
