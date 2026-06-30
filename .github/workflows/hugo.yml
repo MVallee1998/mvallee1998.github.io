@@ -43,6 +43,8 @@ jobs:
           submodules: recursive
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      - name: Generate Hugo content from BibTeX
+        run: python3 scripts/bib2hugo.py
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v6
