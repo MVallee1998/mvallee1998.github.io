@@ -1,11 +1,17 @@
 ---
-title: "Research"
+title: "Research Overview"
 description: "Preprints and articles by Dr Vallée Mathieu."
 ---
 
-### Overview
 
-My three main subjects are toric topology, combinatorial optimization, and operad theory. 
+My three main subjects are toric topology, combinatorial optimization, and operad theory. I work with the following objects:
+
+- **Combinatorics :** Simplicial complexes, (Delta-)Matroids, Graphs
+- **Geometry :** Polytopes, Polyhedral fans, PL spheres
+- **Topology :** Polyhedral products, Moment-angle complexes, topological toric manifolds
+- **Linear algebra :** $0/\pm1$-Matrices, determinants, totally unimodular matrices, totally equimodular matrices
+- **Nonlinear algebra :** Stanley-Reisner rings, Chow rings, Algebras over simplicial/relative complex operads
+
 
 #### Toric topology
 
@@ -33,7 +39,3 @@ My three main subjects are toric topology, combinatorial optimization, and opera
   - **Advisors:** [Roland Grappe](https://www.lamsade.dauphine.fr/~rgrappe/index.html) and [Bruno Vallette](https://www.math.univ-paris13.fr/~vallette/)
   - **Topics:** combinatorial optimization, polyhedral geometry, toric geometry
   - **Manuscript:** [PDF](manuscrit_thèse.pdf)
-
-----
-
-## Papers

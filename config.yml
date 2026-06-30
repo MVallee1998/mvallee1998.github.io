@@ -12,8 +12,11 @@ taxonomies:
 
 menu:
     main:
-        - name: Research
+        - name: Research overview
           url: research/
+          weight: 1
+        - name: Papers
+          url: papers/
           weight: 1
         - name: Photography
           url: photography/
@@ -38,7 +41,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["Research", "Courses", "Photography"]
+    MainSections: ["Research Overview","Papers", "Courses", "Photography"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -49,13 +52,15 @@ params:
     profileMode:
           enabled: true
           title: Dr Mathieu Vallée
-          subtitle: "I am currently a postdoctoral researcher at Université libre de Bruxelles (ULB), supervised by [Jean Cardinal](https://jean.cardinal.web.ulb.be/). I was a doctoral student of Professor [Roland Grappe](https://www.lamsade.dauphine.fr/~rgrappe/index.html) and Professor [Bruno Vallette](https://www.math.univ-paris13.fr/~vallette/) in Paris, at [Université Sorbonne Paris Nord](https://www.univ-spn.fr/)."
+          subtitle: "*Toric topology, combinatorial optimization, operad theory*<br><br>I am currently a postdoctoral researcher at Université libre de Bruxelles (ULB), supervised by [Jean Cardinal](https://jean.cardinal.web.ulb.be/). I was a doctoral student of Professor [Roland Grappe](https://www.lamsade.dauphine.fr/~rgrappe/index.html) and Professor [Bruno Vallette](https://www.math.univ-paris13.fr/~vallette/) in Paris, at [Université Sorbonne Paris Nord](https://www.univ-spn.fr/)."
           imageUrl: "Mathieu.jpg"
           imageWidth: 200
           imageHeight: 200
           buttons:
-            - name: Research
+            - name: Research Overview
               url: research/
+            - name: Papers
+              url: papers/
             - name: Courses
               url: courses/
             - name: Photography

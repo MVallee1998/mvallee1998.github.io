@@ -5,43 +5,12 @@
   <h1>{{ .Title }}</h1>
 </header>
 {{- end }}
-
 {{- if .Content }}
 <div class="post-content">
   {{- if not (.Param "disableAnchoredHeadings") }}
   {{- partial "anchored_headings.html" .Content -}}
   {{- else }}{{ .Content }}{{ end }}
 </div>
-{{- end }}
-
-{{- $sections := slice
-  (dict "title" "Preprints"   "path" "/research/preprints")
-  (dict "title" "Published"   "path" "/research/published")
-  (dict "title" "Conferences" "path" "/research/conferences")
-}}
-
-{{- range $sections }}
-  {{- $sec := site.GetPage .path }}
-  {{- if and $sec $sec.Pages }}
-  <h4 style="margin-top:2rem;margin-bottom:1rem">{{ .title }}</h4>
-
-  {{- range sort $sec.Pages "Date" "desc" }}
-  <article class="post-entry">
-    <header class="entry-header">
-      <h4 class="entry-hint-parent">{{ .Title }}</h4>
-    </header>
-    {{- if (ne (.Param "hideSummary") true) }}
-    <div class="entry-content">
-      <p>{{ .Summary | plainify | htmlUnescape }}</p>
-    </div>
-    {{- end }}
-    <footer class="entry-footer">
-      {{- partial "post_meta.html" . -}}
-    </footer>
-    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-  </article>
-  {{- end }}
-  {{- end }}
 {{- end }}
 
 {{- end }}{{- /* end main */ -}}

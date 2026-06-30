@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Convert .bib files in bib/ to Hugo paper content pages under content/research/.
+Convert .bib files in bib/ to Hugo paper content pages under content/papers/.
 
 Usage:
     python scripts/bib2hugo.py           # skip existing pages
@@ -445,7 +445,7 @@ def main():
 
     project_root = Path(__file__).parent.parent
     bib_dir = project_root / 'bib'
-    papers_dir = project_root / 'content' / 'research'
+    papers_dir = project_root / 'content' / 'papers'
 
     if not bib_dir.exists():
         print(f'No bib/ directory found at {bib_dir}. Create it and add .bib files.')
@@ -461,7 +461,7 @@ def main():
     for bib_path in bib_files:
         section = BIB_SECTION.get(bib_path.stem, '')
         section_dir = papers_dir / section if section else papers_dir
-        print(f'Reading {bib_path.name}  →  content/research/{section or ""}')
+        print(f'Reading {bib_path.name}  →  content/papers/{section or ""}')
         try:
             entries = parse_bib_file(bib_path)
         except Exception as e:
