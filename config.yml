@@ -32,7 +32,7 @@ params:
     DateFormat: "January 2006"
     defaultTheme: light
     hideFooter: false
-    disableThemeToggle: false
+    disableThemeToggle: true
     ShowShareButtons: false
     ShowReadingTime: false
     disableSpecial1stPost: true
@@ -91,7 +91,7 @@ params:
     label:
       text: "Mathieu Vallée"
       icon: favicon.ico
-      iconHeight: 18
+      iconHeight: 28
 
 caches:
     images:
