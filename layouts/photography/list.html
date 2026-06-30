@@ -1,0 +1,24 @@
+{{- define "main" }}
+
+{{- if .Title }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+</header>
+{{- end }}
+
+{{- if .Content }}
+<div class="post-content">{{ .Content }}</div>
+{{- end }}
+
+<div class="photo-gallery">
+  {{- range resources.Match "photos/*" }}
+  {{- if eq .ResourceType "image" }}
+  {{- $thumb := .Resize "600x q75" }}
+  <a href="{{ .Permalink }}" target="_blank" rel="noopener">
+    <img src="{{ $thumb.RelPermalink }}" alt="{{ .Name | replaceRE `\.[^.]+$` `` }}" loading="lazy">
+  </a>
+  {{- end }}
+  {{- end }}
+</div>
+
+{{- end }}

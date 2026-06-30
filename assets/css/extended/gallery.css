@@ -1,0 +1,30 @@
+.photo-gallery {
+    columns: 3;
+    column-gap: 8px;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .photo-gallery { columns: 2; }
+}
+
+@media (max-width: 480px) {
+    .photo-gallery { columns: 1; }
+}
+
+.photo-gallery a {
+    display: block;
+    break-inside: avoid;
+    margin-bottom: 8px;
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.photo-gallery a:hover img {
+    transform: scale(1.02);
+}

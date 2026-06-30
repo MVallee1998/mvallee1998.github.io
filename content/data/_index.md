@@ -1,4 +1,4 @@
 ---
 title: "Data"
-description: "Datasets on various philological topics."
+description: "Datasets on PL spheres related to toric topology."
 ---
