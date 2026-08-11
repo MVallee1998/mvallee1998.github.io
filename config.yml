@@ -17,7 +17,7 @@ menu:
           weight: 1
         - name: Papers
           url: papers/
-          weight: 1
+          weight: 2
         - name: Photography
           url: photography/
           weight: 3
