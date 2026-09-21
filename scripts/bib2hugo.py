@@ -361,7 +361,8 @@ def entry_to_markdown(citekey, fields):
     eprint = extract_arxiv_id(fields)
     note = clean_latex(fields.get('note', ''))
 
-    # summary shown on the list card: venue + volume/pages if available
+    # Summary shown on the list card: identify preprints by arXiv rather than
+    # presenting arXiv as though it were a journal venue.
     venue_line_parts = [venue_display]
     if volume and number:
         venue_line_parts.append(f'{volume} ({number})')
@@ -369,7 +370,8 @@ def entry_to_markdown(citekey, fields):
         venue_line_parts.append(volume)
     if pages:
         venue_line_parts.append(pages)
-    summary = ', '.join(p for p in venue_line_parts if p) or title
+    summary = (f'arXiv:{eprint}' if eprint else
+               (', '.join(p for p in venue_line_parts if p) or title))
 
     # description: abstract truncated for SEO (falls back to venue summary)
     description = truncate(abstract or note or summary, 155)
@@ -395,12 +397,15 @@ def entry_to_markdown(citekey, fields):
     if description:
         fm_lines.append(f'description: {yaml_str(description)}')
     fm_lines.append(f'summary: {yaml_str(summary)}')
+    if eprint:
+        fm_lines.append(f'arxiv: {yaml_str(eprint)}')
     if edit_url or venue_abbr:
         fm_lines.append('editPost:')
         if edit_url:
             fm_lines.append(f'    URL: {yaml_str(edit_url)}')
-        if venue_abbr:
-            fm_lines.append(f'    Text: {yaml_str(venue_abbr)}')
+        link_text = f'arXiv:{eprint}' if eprint else venue_abbr
+        if link_text:
+            fm_lines.append(f'    Text: {yaml_str(link_text)}')
     fm_lines.append('---')
 
     # --- Body ---

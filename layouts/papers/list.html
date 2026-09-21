@@ -23,20 +23,31 @@
 {{- range $sections }}
   {{- $sec := site.GetPage .path }}
   {{- if and $sec $sec.Pages }}
-  <h4 style="margin-top:2rem;margin-bottom:1rem">{{ .title }}</h4>
+  <h4 class="paper-section-title">{{ .title }}</h4>
 
   {{- range sort $sec.Pages "Date" "desc" }}
-  <article class="post-entry">
+  <article class="post-entry paper-entry">
     <header class="entry-header">
       <h4 class="entry-hint-parent">{{ .Title }}</h4>
     </header>
-    {{- if (ne (.Param "hideSummary") true) }}
-    <div class="entry-content">
-      <p>{{ .Summary | plainify | htmlUnescape }}</p>
-    </div>
-    {{- end }}
     <footer class="entry-footer">
-      {{- partial "post_meta.html" . -}}
+      {{- if not .Date.IsZero -}}
+      <span title="{{ .Date }}">{{ .Date | time.Format (default "January 2, 2006" site.Params.DateFormat) }}</span>
+      {{- end }}
+      {{- with (partial "author.html" .) -}}
+      &nbsp;&middot;&nbsp;{{ . }}
+      {{- end }}
+      {{- with .Params.arxiv -}}
+      &nbsp;&middot;&nbsp;<a class="publication-link" href="https://arxiv.org/abs/{{ . }}" rel="noopener noreferrer" target="_blank">arXiv:{{ . }}</a>
+      {{- else -}}
+        {{- with .Params.editPost -}}
+          {{- $url := index . "url" -}}
+          {{- $text := index . "text" -}}
+          {{- if and $url $text -}}
+      &nbsp;&middot;&nbsp;<a class="publication-link" href="{{ $url }}" rel="noopener noreferrer" target="_blank">{{ $text }}</a>
+          {{- end -}}
+        {{- end -}}
+      {{- end }}
     </footer>
     <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
   </article>
