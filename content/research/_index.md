@@ -17,8 +17,7 @@ I work in polyhedral geometry, at the crossroads of combinatorics, topology and 
 
 **Tropicalization of algebraic groups.** Tropicalization turns an algebraic variety into a polyhedral complex that retains much of its geometry. We study the tropicalization of algebraic groups.
 
-*Ongoing:* with [Bernd Sturmfels](https://math.berkeley.edu/~bernd/), Michael J., Kevin K.
-
+*Ongoing:* with [Michael Joswig](https://page.math.tu-berlin.de/~joswig/), [Kevin Kuehn](https://page.math.tu-berlin.de/~kuehn/), [Bernd Sturmfels](https://math.berkeley.edu/~bernd/),
 #### Toric topology
 
 **Toric manifolds of small Picard number.** Toric manifolds correspond to complete nonsingular fans, and their Picard number is the number of rays minus the dimension. We use the wedge operation on simplicial complexes to classify PL spheres and toric manifolds of small Picard number.
