@@ -52,10 +52,15 @@ params:
     profileMode:
           enabled: true
           title: Dr Mathieu Vallée
-          subtitle: "*Polyhedral geometry, combinatorics, toric topology, operad theory*<br><br>I am currently a postdoctoral researcher at Université libre de Bruxelles (ULB), supervised by [Jean Cardinal](https://jean.cardinal.web.ulb.be/). I was a doctoral student of Professor [Roland Grappe](https://www.lamsade.dauphine.fr/~rgrappe/index.html) and Professor [Bruno Vallette](https://www.math.univ-paris13.fr/~vallette/) in Paris, at [Université Sorbonne Paris Nord](https://www.univ-spn.fr/)."
+          subtitle: "*Polyhedral geometry, combinatorics, toric topology, operad theory*<br><br>I am currently a postdoctoral researcher at [MPI MiS](https://www.mis.mpg.de/) (Leipzig), supervised by [Bernd Sturmfels](https://math.berkeley.edu/~bernd/). Before this I was a postdoc of [Jean Cardinal](https://jean.cardinal.web.ulb.be/) at [ULB](https://www.ulb.be/) (Brussels). I was a doctoral student of Professor [Roland Grappe](https://www.lamsade.dauphine.fr/~rgrappe/index.html) and Professor [Bruno Vallette](https://www.math.univ-paris13.fr/~vallette/) in Paris, at [USPN](https://www.univ-spn.fr/) (Paris)."
           imageUrl: "Mathieu.jpg"
           imageWidth: 200
           imageHeight: 200
+          affiliationLogo:
+            url: images/mpi-mis-logo.svg
+            link: https://www.mis.mpg.de/
+            title: Max Planck Institute for Mathematics in the Sciences
+            width: 340
           buttons:
             - name: Research Overview
               url: research/
@@ -90,7 +95,7 @@ params:
         hiddenInSingle: true
     label:
       text: "Mathieu Vallée"
-      icon: favicon.ico
+      icon: images/mpi-mis-icon.svg
       iconHeight: 28
 
 caches:

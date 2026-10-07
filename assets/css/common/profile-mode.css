@@ -27,6 +27,21 @@
     border: 1px solid var(--tertiary);
 }
 
+.profile .profile_images {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+}
+
+.profile .profile_affiliation img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 0;
+}
+
 .buttons {
     flex-wrap: wrap;
 }

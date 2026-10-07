@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 2 2" width="256" height="256">
+  <title>Fan of the Hirzebruch surface F1</title>
+  <defs><clipPath id="c"><rect x="-1" y="-1" width="2" height="2" rx="0.36"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <g transform="translate(0.0,0.0) scale(1,-1)">
+      <polygon points="0.0000,0.0000 4.0000,0.0000 2.8284,2.8284 0.0000,4.0000" fill="#5b6799"/><polygon points="0.0000,0.0000 0.0000,4.0000 -1.5307,3.6955 -2.8284,2.8284" fill="#a3acd6"/><polygon points="0.0000,0.0000 -2.8284,2.8284 -3.6955,-1.5307 0.0000,-4.0000" fill="#5b6799"/><polygon points="0.0000,0.0000 0.0000,-4.0000 2.8284,-2.8284 4.0000,0.0000" fill="#a3acd6"/>
+      <g stroke="#1d2346" stroke-width="0.125" stroke-linecap="butt"><line x2="4.0000" y2="0.0000"/><line x2="0.0000" y2="4.0000"/><line x2="-2.8284" y2="2.8284"/><line x2="0.0000" y2="-4.0000"/></g>
+      <g fill="#1d2346" stroke="#1d2346" stroke-width="0.03" stroke-linejoin="round"><polygon points="0.6600,0.0000 0.4100,0.1500 0.4100,-0.1500"/><polygon points="0.0000,0.6600 -0.1500,0.4100 0.1500,0.4100"/><polygon points="-0.6600,0.6600 -0.5893,0.3772 -0.3772,0.5893"/><polygon points="0.0000,-0.6600 0.1500,-0.4100 -0.1500,-0.4100"/></g>
+      <circle r="0.12" fill="#1d2346"/>
+    </g>
+  </g>
+</svg>
