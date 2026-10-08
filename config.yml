@@ -52,7 +52,7 @@ params:
     profileMode:
           enabled: true
           title: Dr Mathieu Vallée
-          subtitle: "*Polyhedral geometry, combinatorics, toric topology, operad theory*<br><br>I am currently a postdoctoral researcher at [MPI MiS](https://www.mis.mpg.de/) (Leipzig), supervised by [Bernd Sturmfels](https://math.berkeley.edu/~bernd/). Before this I was a postdoc of [Jean Cardinal](https://jean.cardinal.web.ulb.be/) at [ULB](https://www.ulb.be/) (Brussels). I was a doctoral student of Professor [Roland Grappe](https://www.lamsade.dauphine.fr/~rgrappe/index.html) and Professor [Bruno Vallette](https://www.math.univ-paris13.fr/~vallette/) in Paris, at [USPN](https://www.univ-spn.fr/) (Paris)."
+          subtitle: "*Polyhedral geometry, combinatorics, toric topology, operad theory*<br><br>I am currently a postdoctoral researcher at [MPI MiS](https://www.mis.mpg.de/) (Leipzig), supervised by [Bernd Sturmfels](https://math.berkeley.edu/~bernd/). Before this I was a postdoc of [Jean Cardinal](https://jean.cardinal.web.ulb.be/) at [ULB](https://www.ulb.be/) (Brussels). I was a doctoral student of Professor [Roland Grappe](https://www.lamsade.dauphine.fr/~rgrappe/index.html) and Professor [Bruno Vallette](https://www.math.univ-paris13.fr/~vallette/) at [USPN](https://www.univ-spn.fr/) (Paris)."
           imageUrl: "Mathieu.jpg"
           imageWidth: 200
           imageHeight: 200

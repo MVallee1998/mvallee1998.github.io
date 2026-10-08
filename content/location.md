@@ -10,7 +10,7 @@ description: "Dr Vallée Mathieu mailing and office addresses at the Max Planck 
 
 #### Mailing address
 
-Dr Mathieu Vallée  
+Dr. Mathieu Vallée  
 Max Planck Institute for Mathematics in the Sciences
 Inselstraße 22 • 04103 Leipzig
 Germany
@@ -20,7 +20,6 @@ Germany
 #### Office address
 
 Office G3.07
-Wing A3
 MPI MiS
 
 ---
