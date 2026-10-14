@@ -4,6 +4,7 @@ date: 2022-06-01
 author: ["Suyoung Choi", "Mathieu Vallée"]
 description: "A real toric manifold $X^$ is said to be cohomologically rigid over $_2$ if every real toric manifold whose $_2$-cohomology ring is isomorphic to the one…"
 summary: "Proceedings of the Steklov Institute of Mathematics, 317 (1), 178–188"
+venue: "Proceedings of the Steklov Institute of Mathematics"
 editPost:
     URL: "https://doi.org/10.1134/S0081543822020109"
     Text: "Proc. Steklov Inst. Math."

@@ -4,6 +4,7 @@ date: 2024-05-01
 author: ["Suyoung Choi", "Hyeontae Jang", "Mathieu Vallée"]
 description: "We present a computationally efficient algorithm that is suitable for graphic processing unit implementation. This algorithm enables the identification…"
 summary: "Journal für die reine und angewandte Mathematik (Crelles Journal), 2024 (811), 267–292"
+venue: "Journal für die reine und angewandte Mathematik (Crelles Journal)"
 editPost:
     URL: "https://doi.org/doi:10.1515/crelle-2024-0027"
     Text: "J. Reine Angew. Math."

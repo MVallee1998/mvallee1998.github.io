@@ -4,6 +4,7 @@ date: 2022-10-01
 author: ["Suyoung Choi", "Mathieu Vallée"]
 description: "The puzzle method was introduced by Choi and Park as an effective method for finding non-singular characteristic maps over wedged simplicial complexes…"
 summary: "Pacific Journal of Mathematics, 320 (1), 13–43"
+venue: "Pacific Journal of Mathematics"
 editPost:
     URL: "https://doi.org/10.2140/pjm.2022.320.13"
     Text: "Pacific J. Math."

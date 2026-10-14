@@ -27,6 +27,22 @@
 
   {{- range sort $sec.Pages "Date" "desc" }}
   <article class="post-entry paper-entry">
+    {{- $p := . }}
+    {{- $coverKey := cond (isset .Params "arxiv") "arxiv" (.Params.venue | default "") }}
+    {{- $cover := "" }}
+    {{- with index hugo.Data.covers $coverKey }}{{ $cover = resources.Get . }}{{ end }}
+    {{- with $cover }}
+      {{- if eq .MediaType.SubType "svg" }}
+    <img class="paper-vignette paper-vignette-logo" src="{{ .RelPermalink }}" width="48" height="66" alt="arXiv" loading="lazy">
+      {{- else }}
+      {{- with .Fill "96x132 top webp" }}
+    <img class="paper-vignette" src="{{ .RelPermalink }}" width="48" height="66" alt="{{ $p.Params.venue }} cover" loading="lazy">
+      {{- end }}
+      {{- end }}
+    {{- else }}
+      {{- warnf "papers: no cover image in data/covers.yaml for %q (%s)" $coverKey $p.File.Path }}
+    {{- end }}
+    <div class="paper-entry-body">
     <header class="entry-header">
       <h4 class="entry-hint-parent">{{ .Title }}</h4>
     </header>
@@ -49,6 +65,7 @@
         {{- end -}}
       {{- end }}
     </footer>
+    </div>
     <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
   </article>
   {{- end }}

@@ -1,0 +1,12 @@
+# Cover vignettes shown next to each paper on the papers list.
+# Keys are the `venue` front-matter field written by scripts/bib2hugo.py
+# (the BibTeX fjournal, else journal, else booktitle). Paths are relative
+# to assets/. Entries with an arXiv identifier always use the arXiv logo.
+arxiv: images/covers/arxiv.svg
+
+"Mathematical Programming": images/covers/math-program.jpg
+"Journal für die reine und angewandte Mathematik (Crelles Journal)": images/covers/crelle.jpg
+"Journal of the London Mathematical Society": images/covers/jlms.jpg
+"Proceedings of the Steklov Institute of Mathematics": images/covers/steklov.jpg
+"Pacific Journal of Mathematics": images/covers/pjm.jpg
+"LIPIcs, Volume 293, Symposium on Computational Geometry 2024": images/covers/socg-2024.jpg

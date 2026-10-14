@@ -4,6 +4,7 @@ date: 2025-07-01
 author: ["Suyoung Choi", "Hyeontae Jang", "Mathieu Vallée"]
 description: "Journal of the London Mathematical Society, 112 (1), e70231"
 summary: "Journal of the London Mathematical Society, 112 (1), e70231"
+venue: "Journal of the London Mathematical Society"
 editPost:
     URL: "https://doi.org/10.1112/jlms.70231"
     Text: "Journal of the London Mathematical Society"

@@ -4,6 +4,7 @@ date: 2026-03-01
 author: ["Patrick Chervet", "Roland Grappe", "Mathieu Vallée"]
 description: "Totally equimodular matrices generalize totally unimodular matrices and arise in the context of box-totally dual integral polyhedra. This work further…"
 summary: "Mathematical Programming"
+venue: "Mathematical Programming"
 editPost:
     URL: "https://doi.org/10.1007/s10107-026-02347-z"
     Text: "Math. Program."

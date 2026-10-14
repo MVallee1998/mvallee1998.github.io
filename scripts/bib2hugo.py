@@ -397,6 +397,8 @@ def entry_to_markdown(citekey, fields):
     if description:
         fm_lines.append(f'description: {yaml_str(description)}')
     fm_lines.append(f'summary: {yaml_str(summary)}')
+    if venue_display:
+        fm_lines.append(f'venue: {yaml_str(venue_display)}')
     if eprint:
         fm_lines.append(f'arxiv: {yaml_str(eprint)}')
     if edit_url or venue_abbr:
