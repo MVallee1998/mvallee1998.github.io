@@ -1,0 +1,166 @@
+%!TEX encoding = UTF-8 Unicode
+% !TEX program = xelatex
+
+% LaTeX Template for CV/Resume
+%
+% This template has been downloaded and modified from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Original Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+% Modified (March 2019) by:
+% Jessica A. Rick <jrick@uwyo.edu>
+% http://www.jessicarick.com
+% 
+%
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, letterpaper,final]{academic-cv}
+
+% Configure page margins with geometry
+\geometry{left=1in, top=0.8in, right=1in, bottom=0.8in, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+\setitemize{noitemsep,topsep=-5pt,parsep=0pt,partopsep=0pt}
+
+% Two-column layout (used for the publication list)
+\usepackage{multicol}
+\setlength{\columnsep}{0.3in}
+\setlength{\premulticols}{5cm} % start the columns on a new page if less space is left
+\raggedcolumns % do not stretch the space between entries to make columns end level
+
+% Clickable links: coloured text instead of boxes
+\definecolor{cvlink}{HTML}{173E78}
+\hypersetup{colorlinks=true, urlcolor=cvlink, linkcolor=cvlink, citecolor=cvlink}
+% PDF metadata (shown as the window title when the PDF is opened)
+\hypersetup{pdftitle={Curriculum Vitae -- Mathieu Vallée}, pdfauthor={Mathieu Vallée}}
+
+% ORCID icon: load the TrueType academicons font explicitly (by name, XeTeX picked
+% the old pdfTeX font, which has no ORCID glyph, so the icon was missing)
+\makeatletter\setfontfamily\ai@font{academicons.ttf}\makeatother
+
+% Allow slightly looser spacing rather than letting a line run into the margin
+\setlength{\emergencystretch}{1em}
+
+% Normal word space after abbreviations such as "Prof." or "Aug." (no sentence spacing)
+\frenchspacing
+% Make link text slightly thicker (FakeBold amount: 0 = normal, 1.5 = bold-like)
+\makeatletter
+\AddToHook{begindocument/end}{%
+  \let\cv@hycolorlink\Hy@colorlink
+  \def\Hy@colorlink#1{\cv@hycolorlink{#1}\IfFontSeriesContextTF{bf}{}{\addfontfeature{FakeBold=0.4}}}% not on text that is already bold
+}
+\makeatother
+
+% Darker body text: use the regular font weight instead of the class's light one
+\renewcommand*{\bodyfontlight}{\sourcesanspro}
+
+% Header in the same family as the body (the class used Roboto): Source Sans Light for the
+% first name (instead of the hairline Roboto Thin), Source Sans for the rest
+\renewcommand*{\headerfont}{\sourcesanspro}
+\renewcommand*{\headerfontlight}{\sourcesansprolight}
+
+% Never hyphenate co-authors' names
+\hyphenation{Hyeontae Suyoung Sturmfels Joswig Chervet Grappe Valenzuela Limonchenko Veryovkin Ammelotte}
+
+% Same as the class's \cvsection, but the grey colour applies only to the rule
+% (in the class it leaked into the text after the heading, e.g. Interests)
+\renewcommand{\cvsection}[1]{%
+  \vspace{\acvSectionTopSkip}
+  \sectionstyle{#1}
+  \phantomsection
+  {\color{gray}\vhrulefill{0.9pt}}%
+  \par\nopagebreak % never leave a heading alone at the bottom of a page
+}
+% Same as the class's \cvsubsection, but kept with what follows it
+\renewcommand{\cvsubsection}[1]{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-3mm}
+  \subsectionstyle{#1}
+  \phantomsection
+  \par\nopagebreak
+}
+% Same as the class's \cvpub, but starts the paragraph before the colour change, so that
+% \nopagebreak after a heading or year label keeps it with the next entry
+\renewcommand*{\cvpub}[1]{\leftskip 0.7cm\parindent -0.7cm\leavevmode\pubstyle{#1}}
+
+% Header without the birth-date line (the class always prints the 3rd argument of \name on its own line)
+\usepackage{xpatch}
+\makeatletter
+\xpatchcmd{\makecvheader}{\\\headerpositionstyle{\@birthdate}}{}{}{\PackageWarning{cv}{Could not remove the birth-date line from the header}}
+\makeatother
+
+%\setcounter{page}{2} % page numbers now start at 1
+
+% Keep the line introducing a list (e.g. a talk title) on the same page as the list
+\makeatletter\@beginparpenalty=10000\makeatother
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+\name{Dr. Mathieu}{Vallée}{} % third argument (birth date) not shown
+\position{Postdoctoral Researcher}
+\address{Max Planck Institute for Mathematics in the Sciences, Inselstraße 22, 04103 Leipzig, Germany}
+
+%\mobile{+1 000-000-0000}
+\email{mathieu.vallee@protonmail.com}
+\homepage{mvallee1998.github.io}
+\github{MVallee1998}
+\orcid{0000-0001-6336-9225}
+%\linkedin{mylinkedin}
+% \gitlab{my-gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+%\twitter{@twitterhandle}
+% \skype{skype-id}
+% \reddit{reddit-id}
+
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal information
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {November 2026}
+  {Mathieu Vallée ~~~·~~~ Curriculum Vitae}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%   Comment out any sections that are not appropriate for your CV
+%-------------------------------------------------------------------------------
+\input{cv/interests.tex}
+\vspace*{-10.7pt} % same space above every section heading (14.5pt)
+
+\input{cv/curr_position.tex}
+\input{cv/past_positions.tex}
+\input{cv/education.tex}
+\input{cv/teaching.tex} % placed here so that Publications starts on a fresh page
+%\input{cv/professional.tex} % now covered by Positions and Teaching
+\input{cv/publications.tex}
+\input{cv/software.tex}
+%\input{cv/honors.tex}
+\input{cv/presentation.tex}
+%\input{cv/mentoring.tex}
+%\input{cv/research.tex} % merged into Education
+\input{cv/extracurricular.tex}
+
+%-------------------------------------------------------------------------------
+\end{document}
