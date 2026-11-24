@@ -54,13 +54,6 @@
 
 % Normal word space after abbreviations such as "Prof." or "Aug." (no sentence spacing)
 \frenchspacing
-% Make link text slightly thicker (FakeBold amount: 0 = normal, 1.5 = bold-like)
-\makeatletter
-\AddToHook{begindocument/end}{%
-  \let\cv@hycolorlink\Hy@colorlink
-  \def\Hy@colorlink#1{\cv@hycolorlink{#1}\IfFontSeriesContextTF{bf}{}{\addfontfeature{FakeBold=0.4}}}% not on text that is already bold
-}
-\makeatother
 
 % Darker body text: use the regular font weight instead of the class's light one
 \renewcommand*{\bodyfontlight}{\sourcesanspro}
