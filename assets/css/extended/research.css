@@ -1,6 +1,32 @@
-/* Figures of the research overview page (built by scripts/build_research_figures.sh). */
+/* Figures of the research overview page (built by scripts/build_research_figures.sh).
+   Each topic is a .research-item: its text beside its figure, the figure on the right
+   (.fig-right) or on the left (.fig-left); .wide-fig gives a wide figure half the row. */
+.post-content .research-item {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 1.25rem 2rem;
+    align-items: center;
+    margin-bottom: var(--content-gap);
+}
+
+.post-content .research-item.fig-left {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+}
+
+.post-content .research-item.wide-fig {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.post-content .research-item.fig-left > .research-fig {
+    order: -1;
+}
+
+.post-content .research-text > :last-child {
+    margin-bottom: 0;
+}
+
 .post-content figure.research-fig {
-    margin: 1.25rem auto 1.5rem;
+    margin: 0;
     text-align: center;
 }
 
@@ -13,10 +39,26 @@
 }
 
 .post-content figure.research-fig > figcaption {
-    max-width: 34rem;
     margin: 0.6rem auto 0;
     color: var(--secondary);
     font-size: 14px;
     font-weight: normal;
     line-height: 1.5;
+}
+
+/* Narrow screens: the figure below its text. */
+@media (max-width: 700px) {
+    .post-content .research-item,
+    .post-content .research-item.fig-left,
+    .post-content .research-item.wide-fig {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .post-content .research-item.fig-left > .research-fig {
+        order: 0;
+    }
+
+    .post-content figure.research-fig > figcaption {
+        max-width: 34rem;
+    }
 }
